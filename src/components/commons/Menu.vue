@@ -1,12 +1,7 @@
 <template>
-  <div class="ui inverted vertical masthead center aligned segment">
-    <div class="ui container">
-      <div class="ui large secondary inverted pointing menu">
-        <a class="active item">Home</a>
-        <a class="item">Work</a>
-        <a class="item">Company</a>
-        <a class="item">Careers</a>
-      </div>
+  <div class="row black header" >
+    <div class='section-center'>
+      Ici le menu 
     </div>
   </div>
 </template>
