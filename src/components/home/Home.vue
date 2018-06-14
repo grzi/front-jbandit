@@ -2,7 +2,7 @@
   <div>
     <jHeader></jHeader>
     <jMenu></jMenu>
-    <highlights></highlights>
+    <jHighlights></jHighlights>
   </div>
 </template>
 
@@ -15,7 +15,7 @@ export default {
   components: {
     'jHeader': Header,
     'jMenu': Menu,
-    'highlights': ArticleHighlights
+    'jHighlights': ArticleHighlights
   },
   data () {
     return {
