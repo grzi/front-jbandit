@@ -1,9 +1,9 @@
 <template>
-  <div class="header">
+  <div class="header white">
     <div class='autoHeight container'>
       <div class="nav-wrapper padding-left-min padding-bottom-min white blue-grey text-darken-4">
         <h3 class="no-margin">j<b><span class='pink-text'>B</span>andit</b></h3>
-        <h6 class=""><b>Blog IT JAVA, Kotlin, JS, Frameworks...</b></h6>
+        <h6 class="">Blog IT JAVA, Kotlin, JS, Frameworks...</h6>
       </div>
     </div>
   </div>

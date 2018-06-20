@@ -1,12 +1,21 @@
+html{background:#f7f7f7;}
 .padding-right-min{padding-right:15px;}
 .padding-left-min{padding-left:15px;}
 .padding-top-min{padding-top:15px;}
 .padding-bottom-min{padding-bottom:15px;}
 .padding-min{padding:15px;}
+.padding-min-force{padding:15px !important;}
 
 .no-margin{margin:0px;}
 .no-margin-bottom{margin-bottom:0px;}
 .margin-top-default{margin-top:20px;}
+.full-width{width:100%;}
 
 .autoHeight{height:auto;}
-.container{width:992px !important;}
+nav.nav-extended .nav-wrapper {
+	min-height: 64px;
+}
+
+@media only screen and (min-width : 992px) {
+  .container{width:992px !important;}
+}
