@@ -6,38 +6,15 @@
           <div class="padding-min">
 
             <div class="carousel carousel-slider center">
-              <div class="carousel-item" href="#one!">
-                <div class="article">
-                  <img style="width:100%" src="/static/image/blog1.jpg"/>
-                  <div class="bubble">Kotlin</div>
-                  <div class="article-title"><a>Comment faire une toupie avec un élastic ?</a></div>
-                  <div class="article-descr">Découvrez comment cet homme a réussi a utiliser son sens de la déduction pour y parvenir...</div>
+              <div class="carousel-item" href="#one!"  v-for="article in trendings" v-bind:key="article.link">
+                <div class="article" >
+                  <img style="width:100%" :src="'/static/image/' + article.img"/>
+                  <div class="bubble">{{article.theme}}</div>
+                  <div class="article-title"><a>{{article.title}}</a></div>
+                  <div class="article-descr">{{article.descr}}</div>
                 </div>
               </div>
-              <div class="carousel-item" href="#two!">
-                <div class="article">
-                  <img style="width:100%" src="/static/image/blog1.jpg"/>
-                  <div class="bubble">Kotlin</div>
-                  <div class="article-title"><a>Comment faire une toupie avec un élastic ?</a></div>
-                  <div class="article-descr">Découvrez comment cet homme a réussi a utiliser son sens de la déduction pour y parvenir...</div>
-                </div>
-              </div>
-              <div class="carousel-item " href="#three!">
-                <div class="article">
-                  <img style="width:100%" src="/static/image/blog1.jpg"/>
-                  <div class="bubble">Kotlin</div>
-                  <div class="article-title"><a>Comment faire une toupie avec un élastic ?</a></div>
-                  <div class="article-descr">Découvrez comment cet homme a réussi a utiliser son sens de la déduction pour y parvenir...</div>
-                </div>
-              </div>
-              <div class="carousel-item " href="#four!">
-                <div class="article">
-                  <img style="width:100%" src="/static/image/blog1.jpg"/>
-                  <div class="bubble">Kotlin</div>
-                  <div class="article-title"><a>Comment faire une toupie avec un élastic ?</a></div>
-                  <div class="article-descr">Découvrez comment cet homme a réussi a utiliser son sens de la déduction pour y parvenir...</div>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
@@ -47,14 +24,15 @@
               <img style="width:100%" src="/static/image/blog2.jpeg"/>
             </div>
             <div class="margin-top-default">
-              <div><b>Un truc ici ... </b></div>
-              <div>D'autres trucs ici ... Qui peuvent éventuellement donner des trucs vraiments cools</div>
+              <div><a><b>{{lastArticle.title}}</b></a></div>
+              <div>{{lastArticle.descr}}</div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
 </template>
 
 <script type = "text/javascript" >
@@ -69,11 +47,7 @@ export default {
     })
     setInterval(function () { instance.next() }, 6000)
   },
-  data () {
-    return {
-
-    }
-  }
+  props: ['lastArticle', 'trendings']
 }
 
 </script>
@@ -85,7 +59,7 @@ export default {
 .article-title{position:absolute;bottom:89px;font-size:20px;font-weight:bold;color:white;background:black;padding:10px;opacity:0.8;}
 .article-descr{position:absolute;bottom:52px;font-size:12px;color:white;background:#222222;padding:10px;opacity:0.8;right:0px;}
 @media only screen and (max-width : 992px) {
-  .article-title{top:0px;width:100%;font-size:inherit;height:40px;}
+  .article-title{bottom:0px;width:100%;font-size:inherit;height:40px;}
   .article-descr{display:none}
 }
 @media only screen and (max-width : 420px) {

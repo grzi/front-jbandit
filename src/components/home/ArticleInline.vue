@@ -3,11 +3,11 @@
     <div class="articleInline margin-top-default">
       <div class="row full-width">
         <div class="col s12 padding-min-force">
-          <span class="titleArticle">Comment faire une toupie avec un élastic ?</span>
+          <span class="titleArticle">{{article.title}}</span>
           <div class="articleDescr">
-          Découvrez comment cet homme a réussi a utiliser son sens de la déduction pour y parvenir...
+          {{article.descr}}
         </div>
-          <div class="footerInfos">Publié le 34 juin 2023</div>
+          <div class="footerInfos">Publié le {{article.date}}</div>
         </div>
       </div>
     </div>
@@ -22,11 +22,7 @@
 
 export default {
   name: 'ArticleInline',
-  data () {
-    return {
-
-    }
-  }
+  props: ['article']
 }
 
 </script>

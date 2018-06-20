@@ -5,8 +5,9 @@
         <div class="container">
           <ul id="nav-mobile" class="left">
             <li><a>Accueil</a></li>
-            <li><a>Tutoriels</a></li>
-            <li><a>Billets</a></li>
+            <li v-for="menu in menus" v-bind:key="menu.name">
+              <a>{{menu.name}}</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -18,11 +19,7 @@
 
 export default {
   name: 'Menu',
-  data () {
-    return {
-
-    }
-  }
+  props: ['menus']
 }
 
 </script>

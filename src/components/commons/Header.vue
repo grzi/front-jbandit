@@ -3,7 +3,7 @@
     <div class='autoHeight container'>
       <div class="nav-wrapper padding-left-min padding-bottom-min white blue-grey text-darken-4">
         <h3 class="no-margin">j<b><span class='pink-text'>B</span>andit</b></h3>
-        <h6 class="">Blog IT JAVA, Kotlin, JS, Frameworks...</h6>
+        <h6 class="">{{data.description}}</h6>
       </div>
     </div>
   </div>
@@ -12,11 +12,7 @@
 <script type = "text/javascript" >
 export default {
   name: 'Header',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
+  props: ['data']
 }
 </script>
 <style>

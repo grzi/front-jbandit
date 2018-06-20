@@ -4,11 +4,12 @@
       <h6>Je vais avoir un petit truc</h6>
     </div>
 
-    <jArticleInline></jArticleInline>
-    <jArticleInline></jArticleInline>
-    <jArticleInline></jArticleInline>
-    <jArticleInline></jArticleInline>
-    <jArticleInline></jArticleInline>
+    <jArticleInline
+      v-for="article in articles"
+      v-bind:key="article.link"
+      v-bind:article="article"
+      >
+    </jArticleInline>
 
     <div class="moreArticles"><a>Voir plus d'article</a></div>
   </div>
@@ -21,11 +22,7 @@ export default {
   components: {
     'jArticleInline': ArticleInline
   },
-  data () {
-    return {
-
-    }
-  }
+  props: ['articles']
 }
 
 </script>
