@@ -19,3 +19,9 @@ nav.nav-extended .nav-wrapper {
 @media only screen and (min-width : 992px) {
   .container{width:992px !important;}
 }
+
+@media only screen and (max-width : 600px) {
+  .container{width:100% !important;}
+  .row .col{padding-left:0px !important;padding-right:0px !important;}
+  .col .padding-min{padding:0px !important;}
+}

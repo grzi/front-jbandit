@@ -6,7 +6,7 @@
           <ul id="nav-mobile" class="left">
             <li><a>Accueil</a></li>
             <li v-for="menu in menus" v-bind:key="menu.name">
-              <a>{{menu.name}}</a>
+              <a class="menu-item">{{menu.name}}s</a>
             </li>
           </ul>
         </div>
@@ -24,5 +24,5 @@ export default {
 
 </script>
 <style>
-
+.menu-item{text-transform: capitalize;}
 </style>

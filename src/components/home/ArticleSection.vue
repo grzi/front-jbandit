@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="titleSection">
-      <h6>Je vais avoir un petit truc</h6>
+      <h6>{{ titleSection }}</h6>
     </div>
 
     <jArticleInline
@@ -22,7 +22,7 @@ export default {
   components: {
     'jArticleInline': ArticleInline
   },
-  props: ['articles']
+  props: ['articles', 'titleSection']
 }
 
 </script>

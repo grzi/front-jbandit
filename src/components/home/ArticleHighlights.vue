@@ -6,7 +6,7 @@
           <div class="padding-min">
 
             <div class="carousel carousel-slider center">
-              <div class="carousel-item" href="#one!"  v-for="article in trendings" v-bind:key="article.link">
+              <div class="carousel-item" v-for="article in trendings" v-bind:key="article.link">
                 <div class="article" >
                   <img style="width:100%" :src="'/static/image/' + article.img"/>
                   <div class="bubble">{{article.theme}}</div>
@@ -39,27 +39,29 @@
 import M from 'materialize-css'
 export default {
   name: 'ArticlesHighlights',
-  mounted () {
+  updated () {
     var elem = document.querySelector('.carousel')
     // eslint-disable-next-line
     var instance = M.Carousel.init(elem,{
       fullWidth: true
     })
     setInterval(function () { instance.next() }, 6000)
+    elem.setAttribute('style', 'height : ' + elem.offsetWidth * 325 / 578 + 'px') // Calcul magique..
   },
   props: ['lastArticle', 'trendings']
 }
 
 </script>
 <style>
-.carousel{height:360px;}
+ .carousel{height:342.67px;}
 .article{position:relative;}
 .bubble{position:absolute;top:0px;background:#e91e63;right:20px;padding:10px;color:white;opacity:0.8}
 .article-medium{width:300px;height:180px;position:relative;}
-.article-title{position:absolute;bottom:89px;font-size:20px;font-weight:bold;color:white;background:black;padding:10px;opacity:0.8;}
-.article-descr{position:absolute;bottom:52px;font-size:12px;color:white;background:#222222;padding:10px;opacity:0.8;right:0px;}
+.article-title{text-transform:capitalize;position:absolute;bottom:89px;font-size:20px;font-weight:bold;color:white;background:black;padding:10px;opacity:0.8;}
+.article-descr{text-transform:capitalize;position:absolute;bottom:52px;font-size:12px;color:white;background:#222222;padding:10px;opacity:0.8;right:0px;}
+
 @media only screen and (max-width : 992px) {
-  .article-title{bottom:0px;width:100%;font-size:inherit;height:40px;}
+  .article-title{bottom:0px;width:100%;font-size:inherit;padding-bottom:15px;}
   .article-descr{display:none}
 }
 @media only screen and (max-width : 420px) {
