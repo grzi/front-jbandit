@@ -10,8 +10,8 @@
                 <div class="article" >
                   <img style="width:100%" :src="'/static/image/' + article.img"/>
                   <div class="bubble">{{article.theme}}</div>
-                  <div class="article-title"><a>{{article.title}}</a></div>
-                  <div class="article-descr">{{article.descr}}</div>
+                  <div class="article-title blue-grey darken-4"><a>{{article.title}}</a></div>
+                  <div class="article-descr blue-grey darken-3">{{article.descr}}</div>
                 </div>
               </div>
 
@@ -24,7 +24,7 @@
               <img style="width:100%" src="/static/image/blog2.jpeg"/>
             </div>
             <div class="margin-top-default">
-              <div><a><b>{{lastArticle.title}}</b></a></div>
+              <div><router-link v-bind:to="'/article/' + lastArticle.link"><b>{{lastArticle.title}}</b></router-link></div>
               <div>{{lastArticle.descr}}</div>
             </div>
           </div>
@@ -37,16 +37,38 @@
 
 <script type = "text/javascript" >
 import M from 'materialize-css'
-export default {
-  name: 'ArticlesHighlights',
-  updated () {
-    var elem = document.querySelector('.carousel')
-    // eslint-disable-next-line
-    var instance = M.Carousel.init(elem,{
+
+var loopCarousel = 0
+
+function initCarousel () {
+  var elem = document.querySelector('.carousel')
+  // eslint-disable-next-line
+  if(elem != null){
+    var instance = M.Carousel.init(elem, {
       fullWidth: true
     })
-    setInterval(function () { instance.next() }, 6000)
+
+    if (loopCarousel === 0) {
+      loopCarousel = setInterval(function () {
+        instance.next()
+      }, 5000)
+    } else {
+      clearInterval(loopCarousel)
+      loopCarousel = setInterval(function () {
+        instance.next()
+      }, 5000)
+    }
     elem.setAttribute('style', 'height : ' + elem.offsetWidth * 325 / 578 + 'px') // Calcul magique..
+  }
+}
+
+export default {
+  name: 'ArticlesHighlights',
+  mounted () {
+    initCarousel()
+  },
+  updated () {
+    initCarousel()
   },
   props: ['lastArticle', 'trendings']
 }
@@ -57,8 +79,8 @@ export default {
 .article{position:relative;}
 .bubble{position:absolute;top:0px;background:#e91e63;right:20px;padding:10px;color:white;opacity:0.8}
 .article-medium{width:300px;height:180px;position:relative;}
-.article-title{text-transform:capitalize;position:absolute;bottom:89px;font-size:20px;font-weight:bold;color:white;background:black;padding:10px;opacity:0.8;}
-.article-descr{text-transform:capitalize;position:absolute;bottom:52px;font-size:12px;color:white;background:#222222;padding:10px;opacity:0.8;right:0px;}
+.article-title{text-transform:capitalize;position:absolute;bottom:89px;font-size:20px;font-weight:bold;color:white;padding:10px;opacity:0.8;}
+.article-descr{text-transform:capitalize;position:absolute;bottom:52px;font-size:12px;color:white;padding:10px;opacity:0.8;right:0px;}
 
 @media only screen and (max-width : 992px) {
   .article-title{bottom:0px;width:100%;font-size:inherit;padding-bottom:15px;}

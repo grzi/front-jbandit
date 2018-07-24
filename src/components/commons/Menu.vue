@@ -1,10 +1,10 @@
 <template>
   <div>
     <nav class="nav-extended">
-      <div class="nav-wrapper blue-grey darken-4">
+      <div class="nav-wrapper blue-grey darken-3">
         <div class="container">
           <ul id="nav-mobile" class="left">
-            <li><a>Accueil</a></li>
+            <li><router-link to="/">Accueil</router-link></li>
             <li v-for="menu in menus" v-bind:key="menu.name">
               <a class="menu-item">{{menu.name}}s</a>
             </li>
@@ -25,4 +25,6 @@ export default {
 </script>
 <style>
 .menu-item{text-transform: capitalize;}
+  .nav-extended{border-bottom:2px solid #e91e63}
+  .router-link-exact-active{color:pink}
 </style>
